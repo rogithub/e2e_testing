@@ -1,0 +1,36 @@
+{
+  "name": "@ro/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kit de pruebas E2E escritas por IA y aprobadas viendo el video: pasos numerados, reporte por paso con sus tiempos en el video.",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./reporter": {
+      "types": "./dist/reporter.d.ts",
+      "default": "./dist/reporter.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/*.test.ts\"",
+    "ejemplo": "playwright test -c ejemplo"
+  },
+  "peerDependencies": {
+    "@playwright/test": ">=1.63.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "26.6.3",
+    "typescript": "7.0.2"
+  }
+}

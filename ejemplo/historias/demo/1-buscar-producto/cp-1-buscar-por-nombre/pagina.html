@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<title>Productos</title>
+<h1>Productos</h1>
+<label>Buscar <input id="buscar" type="search"></label>
+<p id="contador" role="status">3 de 3</p>
+<table>
+  <thead><tr><th>Nombre</th><th>Precio</th></tr></thead>
+  <tbody>
+    <tr><td>PLUMA AZUL</td><td>12.50</td></tr>
+    <tr><td>CUADERNO PROFESIONAL</td><td>45.00</td></tr>
+    <tr><td>LÁPIZ HB</td><td>6.00</td></tr>
+  </tbody>
+</table>
+<script>
+  const filas = [...document.querySelectorAll('tbody tr')];
+  document.getElementById('buscar').addEventListener('input', (e) => {
+    const texto = e.target.value.trim().toUpperCase();
+    let visibles = 0;
+    for (const fila of filas) {
+      const ve = fila.cells[0].textContent.includes(texto);
+      fila.hidden = !ve;
+      if (ve) visibles++;
+    }
+    document.getElementById('contador').textContent = `${visibles} de ${filas.length}`;
+  });
+</script>
+</html>

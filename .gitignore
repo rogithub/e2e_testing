@@ -1,0 +1,8 @@
+node_modules/
+dist/
+corridas/
+test-results/
+playwright-report/
+.auth/
+.env*
+!.env.example
